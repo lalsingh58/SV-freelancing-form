@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>High Click Freelancing Form</title>
+    <link rel="icon" type="image/png" href="./logo/HIGH CLICK LOGO-01.png" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="foreground"></div>
+
+    <!-- IMPORTANT: enctype must be set to multipart/form-data for file uploads -->
+    <form
+      class="formContainer"
+      id="HCScustomerform"
+      enctype="multipart/form-data"
+    >
+      <h2>Build Your Career, With Our Passion</h2>
+
+      <!-- Name -->
+      <label for="name">Full Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Enter your name"
+        required
+      />
+
+      <!-- Age -->
+      <label for="age">Age</label>
+      <input
+        type="number"
+        id="age"
+        name="age"
+        placeholder="Your age"
+        min="1"
+        max="120"
+        required
+      />
+
+      <label for="contact">Contact Number</label>
+      <input
+        type="number"
+        id="contact"
+        name="contact"
+        placeholder="Your Contact number"
+        required
+      />
+
+      <!-- Gender (radio buttons) -->
+      <fieldset>
+        <legend>Gender</legend>
+        <div class="radio-group">
+          <label
+            ><input type="radio" name="gender" value="male" required />
+            Male</label
+          >
+          <label
+            ><input type="radio" name="gender" value="female" required />
+            Female</label
+          >
+          <label
+            ><input type="radio" name="gender" value="other" required />
+            Other</label
+          >
+          <label
+            ><input type="radio" name="gender" value="prefer-not" required />
+            Prefer not to say</label
+          >
+        </div>
+      </fieldset>
+
+      <!-- Profile URL (optional) -->
+      <label for="profile">Profile URL (if any)</label>
+      <input
+        type="url"
+        id="profile"
+        name="profile_url"
+        placeholder="https://example.com/yourprofile"
+      />
+
+      <!-- Interested in (dropdown) -->
+      <label for="interest">Interested in</label>
+      <select id="interest" name="interest" required>
+        <option value="" disabled selected>-- Select an area --</option>
+        <option value="photography">Photography</option>
+        <option value="boldartist">Bold Artist</option>
+        <option value="styling">Styling</option>
+        <option value="modeling">Modeling</option>
+        <option value="designing">Designing</option>
+        <option value="makeup">Makeup Artist</option>
+      </select>
+
+      <!-- Dynamic fields container (subcategories + portfolio uploads) -->
+      <div id="dynamicFieldsContainer">
+        <!-- Photography subcategories + portfolio -->
+        <div class="dynamic-field" id="field-photography">
+          <label for="photo-type">Photography Type</label>
+          <select id="photo-type" name="photography_type">
+            <option value="" disabled selected>
+              -- Select photography type --
+            </option>
+            <option value="wedding">Wedding Photography</option>
+            <option value="portrait">Portrait Photography</option>
+            <option value="fashion">Fashion Photography</option>
+            <option value="product">Product Photography</option>
+            <option value="event">Event Photography</option>
+            <option value="other">Other (please specify)</option>
+          </select>
+          <input
+            type="text"
+            name="photography_other"
+            placeholder="If other, please specify"
+            style="margin-top: 10px"
+          />
+
+          <!-- Portfolio upload for photography -->
+          <label for="portfolio-photography" style="margin-top: 15px"
+            >Portfolio (photos you've taken)</label
+          >
+          <input
+            type="file"
+            id="portfolio-photography"
+            name="portfolio_photography"
+            multiple
+            accept="image/*,video/*"
+          />
+          <div class="file-hint">You can select multiple images or videos</div>
+        </div>
+
+        <!-- Styling subcategories + portfolio -->
+        <div class="dynamic-field" id="field-styling">
+          <label for="styling-type">Styling Type</label>
+          <select id="styling-type" name="styling_type">
+            <option value="" disabled selected>
+              -- Select styling type --
+            </option>
+            <option value="fashion">Fashion Styling</option>
+            <option value="wardrobe">Wardrobe Styling</option>
+            <option value="hair">Hair Styling</option>
+            <option value="personal">Personal Styling</option>
+            <option value="editorial">Editorial Styling</option>
+            <option value="other">Other (please specify)</option>
+          </select>
+          <input
+            type="text"
+            name="styling_other"
+            placeholder="If other, please specify"
+            style="margin-top: 10px"
+          />
+
+          <!-- Portfolio upload for styling -->
+          <label for="portfolio-styling" style="margin-top: 15px"
+            >Portfolio (lookbooks, mood boards, etc.)</label
+          >
+          <input
+            type="file"
+            id="portfolio-styling"
+            name="portfolio_styling"
+            multiple
+            accept="image/*,application/pdf"
+          />
+          <div class="file-hint">Images or PDFs accepted</div>
+        </div>
+
+        <!-- Modeling subcategories + portfolio -->
+        <div class="dynamic-field" id="field-modeling">
+          <label for="modeling-type">Modeling Type</label>
+          <select id="modeling-type" name="modeling_type">
+            <option value="" disabled selected>
+              -- Select modeling type --
+            </option>
+            <option value="runway">Runway Model</option>
+            <option value="commercial">Commercial Model</option>
+            <option value="fashion">Fashion Model</option>
+            <option value="fitness">Fitness Model</option>
+            <option value="print">Print Model</option>
+            <option value="other">Other (please specify)</option>
+          </select>
+          <input
+            type="text"
+            name="modeling_other"
+            placeholder="If other, please specify"
+            style="margin-top: 10px"
+          />
+
+          <!-- Portfolio upload for modeling -->
+          <label for="portfolio-modeling" style="margin-top: 15px"
+            >Portfolio (comp cards, photos, etc.)</label
+          >
+          <input
+            type="file"
+            id="portfolio-modeling"
+            name="portfolio_modeling"
+            multiple
+            accept="image/*,application/pdf"
+          />
+          <div class="file-hint">Images or PDF comp cards</div>
+        </div>
+
+        <!-- Designing subcategories + portfolio -->
+        <div class="dynamic-field" id="field-designing">
+          <label for="designing-type">Designing Type</label>
+          <select id="designing-type" name="designing_type">
+            <option value="" disabled selected>
+              -- Select designing type --
+            </option>
+            <option value="graphic">Graphic Design</option>
+            <option value="fashion">Fashion Design</option>
+            <option value="interior">Interior Design</option>
+            <option value="web">Web Design</option>
+            <option value="product">Product Design</option>
+            <option value="other">Other (please specify)</option>
+          </select>
+          <input
+            type="text"
+            name="designing_other"
+            placeholder="If other, please specify"
+            style="margin-top: 10px"
+          />
+
+          <!-- Portfolio upload for designing -->
+          <label for="portfolio-designing" style="margin-top: 15px"
+            >Portfolio (design samples, mockups, etc.)</label
+          >
+          <input
+            type="file"
+            id="portfolio-designing"
+            name="portfolio_designing"
+            multiple
+            accept="image/*,application/pdf,.psd,.ai"
+          />
+          <div class="file-hint">Images, PDFs, or design files</div>
+        </div>
+
+        <!-- Makeup Artist subcategories + portfolio -->
+        <div class="dynamic-field" id="field-makeup">
+          <label for="makeup-type">Makeup Artist Specialization</label>
+          <select id="makeup-type" name="makeup_type">
+            <option value="" disabled selected>
+              -- Select specialization --
+            </option>
+            <option value="bridal">Bridal Makeup</option>
+            <option value="sfx">Special Effects (SFX)</option>
+            <option value="editorial">Editorial Makeup</option>
+            <option value="everyday">Everyday / Beauty</option>
+            <option value="theatrical">Theatrical Makeup</option>
+            <option value="other">Other (please specify)</option>
+          </select>
+          <input
+            type="text"
+            name="makeup_other"
+            placeholder="If other, please specify"
+            style="margin-top: 10px"
+          />
+
+          <!-- Portfolio upload for makeup artist -->
+          <label for="portfolio-makeup" style="margin-top: 15px"
+            >Portfolio (before/after photos, looks)</label
+          >
+          <input
+            type="file"
+            id="portfolio-makeup"
+            name="portfolio_makeup"
+            multiple
+            accept="image/*,video/*"
+          />
+          <div class="file-hint">Images or videos</div>
+        </div>
+      </div>
+
+      <!-- Resume/CV upload (always visible) -->
+      <label for="resume">Resume / CV (optional)</label>
+      <input
+        type="file"
+        id="resume"
+        name="resume"
+        accept=".pdf,.doc,.docx,.txt"
+      />
+      <div class="file-hint">Accepted formats: PDF, DOC, DOCX, TXT</div>
+
+      <!-- Instagram ID -->
+      <label for="instagram">Instagram ID</label>
+      <input
+        type="text"
+        id="instagram"
+        name="instagram_id"
+        placeholder="@yourhandle"
+      />
+
+      <!-- YouTube Link -->
+      <label for="youtube">YouTube Link</label>
+      <input
+        type="url"
+        id="youtube"
+        name="youtube_link"
+        placeholder="https://youtube.com/..."
+      />
+
+      <!-- Submit button -->
+      <button type="submit">Submit</button>
+    </form>
+    <script src="./script.js"></script>
+  </body>
+</html>
