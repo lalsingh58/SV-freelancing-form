@@ -4,8 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("HCScustomerform");
 
   const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbzmZYQL0T1M6fkDAqkX9l-TC4eqWl9tXA-OXuSzj2ui-W8fO2uyFQoT8QmTGVtZ1un1lg/exec";
-
+    "https://script.google.com/macros/s/AKfycbwcPBgQh5_OvlVGylk5HtI_aSvTrB8fO92XhL5zQipaJdrml1Zwc0E21ABmsm4JYpT4wQ/exec";
   // ----------------------------
   // SHOW / HIDE DYNAMIC FIELDS
   // ----------------------------
