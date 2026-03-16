@@ -1,7 +1,8 @@
 /* Animated Gradient Background */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(-45deg, #fed7aa, #fb923c, #ea580c, #f97316);
+  background-color: #c96f85;
+  /* background: linear-gradient(-45deg, #ececec, #4871e1, #10b354, #e51515); */
   background-size: 400% 400%;
   animation: gradientMove 10s ease infinite;
   margin: 0;
@@ -22,8 +23,7 @@ body::after {
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(255, 140, 0, 0.6) 0%,
-    rgba(255, 140, 0, 0) 70%
+    /* rgba(255, 140, 0, 0.6) 0%, */ rgba(255, 140, 0, 0) 70%
   );
   z-index: -1;
   animation: floatBlob 12s ease-in-out infinite;
