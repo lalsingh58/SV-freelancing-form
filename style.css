@@ -1,7 +1,7 @@
 /* Animated Gradient Background */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #c96f85;
+  background-color: #f9fbed;
   /* background: linear-gradient(-45deg, #ececec, #4871e1, #10b354, #e51515); */
   background-size: 400% 400%;
   animation: gradientMove 10s ease infinite;
