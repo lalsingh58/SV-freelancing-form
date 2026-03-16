@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const interestSelect = document.getElementById("interest");
   const dynamicFields = document.querySelectorAll(".dynamic-field");
   const form = document.getElementById("HCScustomerform");
+  const submitBtn = document.getElementById("submitBtn");
+  const btnText = document.getElementById("btnText");
+  const spinner = document.getElementById("spinner");
 
   const SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycbwcPBgQh5_OvlVGylk5HtI_aSvTrB8fO92XhL5zQipaJdrml1Zwc0E21ABmsm4JYpT4wQ/exec";
@@ -95,12 +98,15 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    submitBtn.disabled = true;
+    btnText.innerText = "Submitting...";
+    spinner.style.display = "inline-block";
+
     try {
       const resumeFile = form.resume.files[0];
       const portfolioFile = getPortfolioFile();
 
       const resumeBase64 = resumeFile ? await fileToBase64(resumeFile) : "";
-
       const portfolioBase64 = portfolioFile
         ? await fileToBase64(portfolioFile)
         : "";
@@ -141,17 +147,28 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log(result);
 
       if (result.status === "success") {
+        btnText.innerText = "Submitted ✓";
+        spinner.style.display = "none";
+
         alert("Application submitted successfully!");
 
         form.reset();
         showDynamicField();
       } else {
         alert("Submission failed: " + result.message);
+
+        btnText.innerText = "Submit";
+        spinner.style.display = "none";
+        submitBtn.disabled = false;
       }
     } catch (error) {
       console.error("Error:", error);
 
       alert("Error submitting form.");
+
+      btnText.innerText = "Submit";
+      spinner.style.display = "none";
+      submitBtn.disabled = false;
     }
   });
 
